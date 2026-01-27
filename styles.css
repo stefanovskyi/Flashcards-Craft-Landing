@@ -301,6 +301,8 @@ img {
     background: white;
     border: 1px solid rgba(255, 255, 255, 0.4);
     aspect-ratio: 3/4;
+    max-width: 450px;
+    margin: 0 auto;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -699,8 +701,8 @@ hr {
     perspective: 1000px;
     width: 100%;
     height: 100%;
-    min-height: 480px;
-    padding: 1rem;
+    min-height: 340px;
+    padding: 0.5rem;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -729,7 +731,7 @@ hr {
     backface-visibility: hidden;
     background: rgba(255, 255, 255, 0.95);
     border-radius: var(--radius-xl);
-    padding: 2rem;
+    padding: 1.5rem;
     display: flex;
     flex-direction: column;
     box-shadow: inset 0 0 20px rgba(0,0,0,0.02);
@@ -742,7 +744,7 @@ hr {
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    gap: 2rem;
+    gap: 1.5rem;
 }
 
 .flashcard-back {
@@ -752,7 +754,7 @@ hr {
 }
 
 .flashcard-text-large {
-    font-size: 1.5rem;
+    font-size: 1.1rem;
     font-weight: 500;
     color: var(--color-dark);
     line-height: 1.4;
@@ -760,8 +762,8 @@ hr {
 }
 
 .audio-btn {
-    width: 64px;
-    height: 64px;
+    width: 48px;
+    height: 48px;
     border-radius: 50%;
     border: 2px solid #CBD5E1;
     background: white;
@@ -780,8 +782,8 @@ hr {
 }
 
 .audio-btn.small {
-    width: 40px;
-    height: 40px;
+    width: 32px;
+    height: 32px;
     align-self: flex-start;
     margin-bottom: 1rem;
     color: var(--color-text);
@@ -789,42 +791,43 @@ hr {
 
 .icon-fill {
     fill: currentColor;
-    width: 24px;
-    height: 24px;
+    width: 18px;
+    height: 18px;
 }
 
+
 .flashcard-title {
-    font-size: 1.25rem;
+    font-size: 1rem;
     font-weight: 700;
     color: var(--color-dark);
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.4rem;
     line-height: 1.3;
 }
 
 .phonetic-text {
-    font-size: 1rem;
+    font-size: 0.85rem;
     color: #94A3B8;
     font-style: italic;
-    margin-bottom: 1.5rem;
-    padding-bottom: 1.5rem;
+    margin-bottom: 1rem;
+    padding-bottom: 1rem;
     border-bottom: 1px solid #E2E8F0;
     width: 100%;
 }
 
 .flashcard-section {
-    margin-bottom: 1.5rem;
+    margin-bottom: 1rem;
     width: 100%;
 }
 
 .flashcard-section h4 {
-    font-size: 1rem;
+    font-size: 0.85rem;
     font-weight: 700;
-    margin-bottom: 0.25rem;
+    margin-bottom: 0.2rem;
     color: var(--color-dark);
 }
 
 .flashcard-section p {
-    font-size: 0.95rem;
+    font-size: 0.8rem;
     color: var(--color-text);
     line-height: 1.5;
 }
@@ -832,16 +835,16 @@ hr {
 .flashcard-list {
     list-style-type: none;
     padding-left: 0;
-    margin-top: 0.5rem;
+    margin-top: 0.4rem;
 }
 
 .flashcard-list li {
-    font-size: 0.9rem;
+    font-size: 0.8rem;
     color: var(--color-text);
-    margin-bottom: 0.75rem;
+    margin-bottom: 0.5rem;
     display: flex;
     align-items: flex-start;
-    gap: 0.5rem;
+    gap: 0.4rem;
 }
 
 .flashcard-list li::before {
