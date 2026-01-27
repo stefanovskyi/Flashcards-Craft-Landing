@@ -244,12 +244,10 @@ img {
     margin-bottom: 1.5rem;
 }
 
-.badge-dot {
-    width: 8px;
-    height: 8px;
-    background-color: #0EA5E9;
-    border-radius: 50%;
-    animation: pulse 2s infinite;
+.badge-icon {
+    width: 20px;
+    height: 20px;
+    object-fit: contain;
 }
 
 .hero h1 {
