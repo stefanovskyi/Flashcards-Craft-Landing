@@ -239,15 +239,44 @@
                     </a>
                 </div>
                 <div class="feature-visual">
-                    <div class="mockup-card glass-effect highlight-blue">
-                         <div class="card-preview">
-                             <span class="field-label">Front</span>
-                             <div class="field-value">Ephemeral</div>
-                             <hr>
-                             <span class="field-label">Context</span>
-                             <div class="field-value">"The message was <strong>ephemeral</strong>, disappearing after 10 seconds."</div>
-                         </div>
+                    <div class="image-wrapper glass-effect">
+                        <!-- Flashcard Component -->
+                        <div class="flashcard-container">
+                            <div class="flashcard">
+                                <!-- Front Side -->
+                                <div class="flashcard-face flashcard-front">
+                                    <p class="flashcard-text-large">Przygotowuję kawę w domu na V60, czy ten stopień palenia będzie odpowiedni?</p>
+                                    <button class="audio-btn" aria-label="Play audio">
+                                        <i data-lucide="play" class="icon-fill"></i>
+                                    </button>
+                                </div>
+                                <!-- Back Side -->
+                                <div class="flashcard-face flashcard-back">
+                                    <button class="audio-btn small" aria-label="Play audio">
+                                        <i data-lucide="play" class="icon-fill"></i>
+                                    </button>
+                                    <h3 class="flashcard-title">Я готую каву вдома у V60, чи підійде цей ступінь обсмаження?</h3>
+                                    <p class="phonetic-text">Pshy-go-to-voo-ye ka-ve v do-moo na faoo-shest-dze-shont, chy ten sto-pyen pa-le-nya ben-dze od-po-vyed-nee?</p>
+                                    
+                                    <div class="flashcard-section">
+                                        <h4>Explanation:</h4>
+                                        <p>Ця фраза допомагає уточнити у бариста, чи підходить конкретний сорт кави для альтернативного заварювання. Зазвичай для V60 шукають світле або середнє обсмаження (jasne/średnie palenie), щоб розкрити кислинку та аромат.</p>
+                                    </div>
+                                    
+                                    <div class="flashcard-section">
+                                        <h4>Follow-up:</h4>
+                                        <ul class="flashcard-list">
+                                            <li>Tak, to jest jasne palenie, idealne do metod przelewowych. (Так, це світле обсмаження, ідеальне для переливних методів.)</li>
+                                            <li>To ziarno jest palone pod espresso, więc w V60 może być zbyt intensywne. (Це зерно обсмажене під еспресо, тому у V60 воно може бути занадто інтенсивним.)</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
+                    <!-- Decorative elements -->
+                    <div class="blob blob-1"></div>
+                    <div class="blob blob-2"></div>
                 </div>
             </div>
         </div>
@@ -287,15 +316,16 @@
 
         // Flashcard Flip Logic
         document.addEventListener('DOMContentLoaded', () => {
-            const flashcard = document.getElementById('hero-flashcard');
-            if (flashcard) {
-                flashcard.addEventListener('click', (e) => {
+            const flashcards = document.querySelectorAll('.flashcard');
+            
+            flashcards.forEach(card => {
+                card.addEventListener('click', (e) => {
                     // Prevent flipping if clicking buttons inside (optional, but good for UX)
                     if (e.target.closest('button')) return;
                     
-                    flashcard.classList.toggle('flipped');
+                    card.classList.toggle('flipped');
                 });
-            }
+            });
         });
     </script>
 </body>

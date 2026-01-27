@@ -471,6 +471,12 @@ img {
 }
 
 /* Features */
+.feature-visual {
+    position: relative;
+    /* Ensure blobs don't get clipped if they extend slightly */
+    z-index: 0; 
+}
+
 .feature-row {
     display: grid;
     grid-template-columns: 1fr 1fr;
