@@ -1,332 +1,513 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Flashcards Craft - Master Languages Faster</title>
-    <meta name="description" content="Generate professional Anki flashcards in seconds. Stop wasting time creating cards and start learning context-rich vocabulary today.">
-    
+    <meta
+      name="description"
+      content="Generate professional Anki flashcards in seconds. Stop wasting time creating cards and start learning context-rich vocabulary today."
+    />
+
     <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+
     <!-- CSS -->
-    <link rel="stylesheet" href="styles.css">
-    
+    <link rel="stylesheet" href="styles.css" />
+
     <!-- Icons -->
     <script src="https://unpkg.com/lucide@latest"></script>
-</head>
-<body>
+    <!-- PostHog -->
+    <script>
+      !(function (t, e) {
+        var o, n, p, r;
+        e.__SV ||
+          ((window.posthog = e),
+          (e._i = []),
+          (e.init = function (i, s, a) {
+            function g(t, e) {
+              var o = e.split(".");
+              (2 == o.length && ((t = t[o[0]]), (e = o[1])),
+                (t[e] = function () {
+                  t.push([e].concat(Array.prototype.slice.call(arguments, 0)));
+                }));
+            }
+            (((p = t.createElement("script")).type = "text/javascript"),
+              (p.async = !0),
+              (p.src =
+                s.api_host.replace(".i.posthog.com", "-assets.i.posthog.com") +
+                "/static/array.js"),
+              (r = t.getElementsByTagName("script")[0]).parentNode.insertBefore(
+                p,
+                r,
+              ));
+            var u = e;
+            for (
+              void 0 !== a ? (u = e[a] = []) : (a = "posthog"),
+                u.people = u.people || [],
+                u.toString = function (t) {
+                  var e = "posthog";
+                  return (
+                    "posthog" !== a && (e += "." + a),
+                    t || (e += " (stub)"),
+                    e
+                  );
+                },
+                u.people.toString = function () {
+                  return u.toString(1) + ".people (stub)";
+                },
+                o =
+                  "init capture register register_once register_for_session unregister opt_out_capturing has_opted_out_capturing opt_in_capturing reset isFeatureEnabled getFeatureFlag getFeatureFlagPayload reloadFeatureFlags group identify setPersonProperties setPersonPropertiesForFlags resetPersonPropertiesForFlags setGroupPropertiesForFlags resetGroupPropertiesForFlags resetGroups onFeatureFlags addFeatureFlagsHandler onSessionId getSurveys getActiveMatchingSurveys renderSurvey canRenderSurvey getNextSurveyStep".split(
+                    " ",
+                  ),
+                n = 0;
+              n < o.length;
+              n++
+            )
+              g(u, o[n]);
+            e._i.push([i, s, a]);
+          }),
+          (e.__SV = 1));
+      })(document, window.posthog || []);
+      posthog.init("phc_reqt1davQ6bsycTQbnYbqVgWjUviMDr4w4SEfJPWELX", {
+        api_host: "https://eu.i.posthog.com",
+        defaults: "2026-01-30",
+      });
+    </script>
+  </head>
+  <body>
     <!-- Navbar -->
     <nav class="navbar">
-        <div class="container nav-container">
-            <a href="#" class="logo">
-                <i data-lucide="layers" class="logo-icon"></i>
-                <span>Flashcards Craft</span>
-            </a>
-            <div class="nav-links">
-                <a href="#features">Features</a>
-                <a href="#pain-points">Why Us</a>
-                <a href="https://app.flashcards.stefanovskyi.com/" class="btn btn-primary">Get Started</a>
-            </div>
-            <button class="mobile-menu-btn">
-                <i data-lucide="menu"></i>
-            </button>
+      <div class="container nav-container">
+        <a href="#" class="logo">
+          <i data-lucide="layers" class="logo-icon"></i>
+          <span>Flashcards Craft</span>
+        </a>
+        <div class="nav-links">
+          <a href="#features">Features</a>
+          <a href="#pain-points">Why Us</a>
+          <a
+            id="btn-get-started"
+            href="https://app.flashcards.stefanovskyi.com/"
+            class="btn btn-primary"
+            >Get Started</a
+          >
         </div>
+        <button class="mobile-menu-btn">
+          <i data-lucide="menu"></i>
+        </button>
+      </div>
     </nav>
 
     <!-- Hero Section -->
     <header class="hero">
-        <div class="container hero-container">
-            <div class="hero-content">
-                <div class="badge">
-                    <img src="assets/anki-icon.png" alt="Anki Logo" class="badge-icon">
-                    Compatible with Anki
-                </div>
-                <h1>Your Personal <br><span class="text-gradient">Flashcard Factory.</span></h1>
-                <p class="hero-subtitle">
-                    Context-perfect cards, generated in seconds. The ultimate tool for serious Anki learners.
-                </p>
-                <div class="hero-cta">
-                    <a href="https://app.flashcards.stefanovskyi.com/" class="btn btn-primary btn-lg">
-                        Start Generating
-                        <i data-lucide="arrow-right" class="btn-icon-right"></i>
-                    </a>
-                    <a href="#how-it-works" class="btn btn-outline btn-lg">
-                        <i data-lucide="play-circle" class="btn-icon-left"></i>
-                        See How It Works
-                    </a>
-                </div>
-                <div class="hero-stats">
-                    <div class="stat-item">
-                        <i data-lucide="zap" class="stat-icon"></i>
-                        <span><strong>10x</strong> Faster Creation</span>
-                    </div>
-                    <div class="stat-item">
-                        <i data-lucide="check-circle" class="stat-icon"></i>
-                        <span><strong>100%</strong> Anki Ready</span>
-                    </div>
-                </div>
+      <div class="container hero-container">
+        <div class="hero-content">
+          <div class="badge">
+            <img
+              src="assets/anki-icon.png"
+              alt="Anki Logo"
+              class="badge-icon"
+            />
+            Compatible with Anki
+          </div>
+          <h1>
+            Your Personal <br /><span class="text-gradient"
+              >Flashcard Factory.</span
+            >
+          </h1>
+          <p class="hero-subtitle">
+            Context-perfect cards, generated in seconds. The ultimate tool for
+            serious Anki learners.
+          </p>
+          <div class="hero-cta">
+            <a
+              id="btn-start-generating"
+              href="https://app.flashcards.stefanovskyi.com/"
+              class="btn btn-primary btn-lg"
+            >
+              Start Generating
+              <i data-lucide="arrow-right" class="btn-icon-right"></i>
+            </a>
+            <a href="#how-it-works" class="btn btn-outline btn-lg">
+              <i data-lucide="play-circle" class="btn-icon-left"></i>
+              See How It Works
+            </a>
+          </div>
+          <div class="hero-stats">
+            <div class="stat-item">
+              <i data-lucide="zap" class="stat-icon"></i>
+              <span><strong>10x</strong> Faster Creation</span>
             </div>
-            <div class="hero-image">
-                <div class="image-wrapper glass-effect">
-                    <!-- Flashcard Component -->
-                    <div class="flashcard-container">
-                        <div class="flashcard" id="hero-flashcard">
-                            <!-- Front Side -->
-                            <div class="flashcard-face flashcard-front">
-                                <p class="flashcard-text-large">Przygotowuję kawę w domu na V60, czy ten stopień palenia będzie odpowiedni?</p>
-                                <button class="audio-btn" aria-label="Play audio">
-                                    <i data-lucide="play" class="icon-fill"></i>
-                                </button>
-                            </div>
-                            <!-- Back Side -->
-                            <div class="flashcard-face flashcard-back">
-                                <button class="audio-btn small" aria-label="Play audio">
-                                    <i data-lucide="play" class="icon-fill"></i>
-                                </button>
-                                <h3 class="flashcard-title">Я готую каву вдома у V60, чи підійде цей ступінь обсмаження?</h3>
-                                <p class="phonetic-text">Pshy-go-to-voo-ye ka-ve v do-moo na faoo-shest-dze-shont, chy ten sto-pyen pa-le-nya ben-dze od-po-vyed-nee?</p>
-                                
-                                <div class="flashcard-section">
-                                    <h4>Explanation:</h4>
-                                    <p>Ця фраза допомагає уточнити у бариста, чи підходить конкретний сорт кави для альтернативного заварювання. Зазвичай для V60 шукають світле або середнє обсмаження (jasne/średnie palenie), щоб розкрити кислинку та аромат.</p>
-                                </div>
-                                
-                                <div class="flashcard-section">
-                                    <h4>Follow-up:</h4>
-                                    <ul class="flashcard-list">
-                                        <li>Tak, to jest jasne palenie, idealne do metod przelewowych. (Так, це світле обсмаження, ідеальне для переливних методів.)</li>
-                                        <li>To ziarno jest palone pod espresso, więc w V60 może być zbyt intensywne. (Це зерно обсмажене під еспресо, тому у V60 воно може бути занадто інтенсивним.)</li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- Decorative elements -->
-                <div class="blob blob-1"></div>
-                <div class="blob blob-2"></div>
+            <div class="stat-item">
+              <i data-lucide="check-circle" class="stat-icon"></i>
+              <span><strong>100%</strong> Anki Ready</span>
             </div>
+          </div>
         </div>
+        <div class="hero-image">
+          <div class="image-wrapper glass-effect">
+            <!-- Flashcard Component -->
+            <div class="flashcard-container">
+              <div class="flashcard" id="hero-flashcard">
+                <!-- Front Side -->
+                <div class="flashcard-face flashcard-front">
+                  <p class="flashcard-text-large">
+                    Przygotowuję kawę w domu na V60, czy ten stopień palenia
+                    będzie odpowiedni?
+                  </p>
+                  <button class="audio-btn" aria-label="Play audio">
+                    <i data-lucide="play" class="icon-fill"></i>
+                  </button>
+                </div>
+                <!-- Back Side -->
+                <div class="flashcard-face flashcard-back">
+                  <button class="audio-btn small" aria-label="Play audio">
+                    <i data-lucide="play" class="icon-fill"></i>
+                  </button>
+                  <h3 class="flashcard-title">
+                    Я готую каву вдома у V60, чи підійде цей ступінь обсмаження?
+                  </h3>
+                  <p class="phonetic-text">
+                    Pshy-go-to-voo-ye ka-ve v do-moo na faoo-shest-dze-shont,
+                    chy ten sto-pyen pa-le-nya ben-dze od-po-vyed-nee?
+                  </p>
+
+                  <div class="flashcard-section">
+                    <h4>Explanation:</h4>
+                    <p>
+                      Ця фраза допомагає уточнити у бариста, чи підходить
+                      конкретний сорт кави для альтернативного заварювання.
+                      Зазвичай для V60 шукають світле або середнє обсмаження
+                      (jasne/średnie palenie), щоб розкрити кислинку та аромат.
+                    </p>
+                  </div>
+
+                  <div class="flashcard-section">
+                    <h4>Follow-up:</h4>
+                    <ul class="flashcard-list">
+                      <li>
+                        Tak, to jest jasne palenie, idealne do metod
+                        przelewowych. (Так, це світле обсмаження, ідеальне для
+                        переливних методів.)
+                      </li>
+                      <li>
+                        To ziarno jest palone pod espresso, więc w V60 może być
+                        zbyt intensywne. (Це зерно обсмажене під еспресо, тому у
+                        V60 воно може бути занадто інтенсивним.)
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Decorative elements -->
+          <div class="blob blob-1"></div>
+          <div class="blob blob-2"></div>
+        </div>
+      </div>
     </header>
 
     <!-- Process/Workflow Section -->
     <section class="workflow-section section-padding bg-surface-alt">
-        <div class="container">
-            <div class="section-header text-center">
-                <h2>From Idea to Deck in Seconds</h2>
-                <p>The fastest path from confusion to mastery.</p>
-            </div>
-            
-            <div class="workflow-steps">
-                <!-- Step 1 -->
-                <div class="step-item">
-                    <div class="step-icon-wrapper">
-                        <i data-lucide="message-square-plus" class="step-icon"></i>
-                    </div>
-                    <h3>Describe Situation</h3>
-                    <p class="step-desc">Choose a topic you want to learn.</p>
-                </div>
-                
-                <!-- Arrow 1 -->
-                <div class="step-arrow">
-                    <i data-lucide="arrow-right"></i>
-                </div>
-
-                <!-- Step 2 -->
-                <div class="step-item">
-                    <div class="step-icon-wrapper">
-                        <i data-lucide="pen-tool" class="step-icon"></i>
-                    </div>
-                    <h3>Add Context</h3>
-                    <p class="step-desc">Our AI enriches it with definitions, translations, and usage examples.</p>
-                </div>
-
-                <!-- Arrow 2 -->
-                <div class="step-arrow">
-                    <i data-lucide="arrow-right"></i>
-                </div>
-
-                <!-- Step 3 -->
-                <div class="step-item">
-                    <div class="step-icon-wrapper">
-                        <i data-lucide="download" class="step-icon"></i>
-                    </div>
-                    <h3>Download Deck</h3>
-                    <p class="step-desc">Get a ready-to-use .apkg file for Anki. Just double-click to import.</p>
-                </div>
-            </div>
+      <div class="container">
+        <div class="section-header text-center">
+          <h2>From Idea to Deck in Seconds</h2>
+          <p>The fastest path from confusion to mastery.</p>
         </div>
+
+        <div class="workflow-steps">
+          <!-- Step 1 -->
+          <div class="step-item">
+            <div class="step-icon-wrapper">
+              <i data-lucide="message-square-plus" class="step-icon"></i>
+            </div>
+            <h3>Describe Situation</h3>
+            <p class="step-desc">Choose a topic you want to learn.</p>
+          </div>
+
+          <!-- Arrow 1 -->
+          <div class="step-arrow">
+            <i data-lucide="arrow-right"></i>
+          </div>
+
+          <!-- Step 2 -->
+          <div class="step-item">
+            <div class="step-icon-wrapper">
+              <i data-lucide="pen-tool" class="step-icon"></i>
+            </div>
+            <h3>Add Context</h3>
+            <p class="step-desc">
+              Our AI enriches it with definitions, translations, and usage
+              examples.
+            </p>
+          </div>
+
+          <!-- Arrow 2 -->
+          <div class="step-arrow">
+            <i data-lucide="arrow-right"></i>
+          </div>
+
+          <!-- Step 3 -->
+          <div class="step-item">
+            <div class="step-icon-wrapper">
+              <i data-lucide="download" class="step-icon"></i>
+            </div>
+            <h3>Download Deck</h3>
+            <p class="step-desc">
+              Get a ready-to-use .apkg file for Anki. Just double-click to
+              import.
+            </p>
+          </div>
+        </div>
+      </div>
     </section>
 
     <!-- Pain Points -->
     <section id="pain-points" class="pain-points section-padding">
-        <div class="container">
-            <div class="section-header text-center">
-                <h2>Why learning feels hard?</h2>
-                <p>You are likely doing it the hard way.</p>
-            </div>
-            <div class="cards-grid">
-                <!-- Pain Point 1 -->
-                <div class="card pain-card">
-                    <div class="card-icon-wrapper danger-light">
-                        <i data-lucide="clock" class="card-icon text-danger"></i>
-                    </div>
-                    <h3>The Time Trap</h3>
-                    <p>Eliminate the busywork. Get structured, context-aware cards without the manual effort.</p>
-                </div>
-                <!-- Pain Point 2 -->
-                <div class="card pain-card">
-                    <div class="card-icon-wrapper warning-light">
-                        <i data-lucide="file-warning" class="card-icon text-warning"></i>
-                    </div>
-                    <h3>The Structure Chaos</h3>
-                    <p>Manual cards are often inconsistent. Bad formatting makes them hard to read and disrupts your brain's retention process.</p>
-                </div>
-                <!-- Pain Point 3 -->
-                <div class="card pain-card">
-                    <div class="card-icon-wrapper info-light">
-                        <i data-lucide="cloud-off" class="card-icon text-info"></i>
-                    </div>
-                    <h3>The Context Void</h3>
-                    <p>Learning isolated words doesn't work. Without real-world context and usage examples, vocabulary refuses to stick.</p>
-                </div>
-            </div>
+      <div class="container">
+        <div class="section-header text-center">
+          <h2>Why learning feels hard?</h2>
+          <p>You are likely doing it the hard way.</p>
         </div>
+        <div class="cards-grid">
+          <!-- Pain Point 1 -->
+          <div class="card pain-card">
+            <div class="card-icon-wrapper danger-light">
+              <i data-lucide="clock" class="card-icon text-danger"></i>
+            </div>
+            <h3>The Time Trap</h3>
+            <p>
+              Eliminate the busywork. Get structured, context-aware cards
+              without the manual effort.
+            </p>
+          </div>
+          <!-- Pain Point 2 -->
+          <div class="card pain-card">
+            <div class="card-icon-wrapper warning-light">
+              <i data-lucide="file-warning" class="card-icon text-warning"></i>
+            </div>
+            <h3>The Structure Chaos</h3>
+            <p>
+              Manual cards are often inconsistent. Bad formatting makes them
+              hard to read and disrupts your brain's retention process.
+            </p>
+          </div>
+          <!-- Pain Point 3 -->
+          <div class="card pain-card">
+            <div class="card-icon-wrapper info-light">
+              <i data-lucide="cloud-off" class="card-icon text-info"></i>
+            </div>
+            <h3>The Context Void</h3>
+            <p>
+              Learning isolated words doesn't work. Without real-world context
+              and usage examples, vocabulary refuses to stick.
+            </p>
+          </div>
+        </div>
+      </div>
     </section>
 
     <!-- Solution / Features -->
     <section id="features" class="features section-padding bg-surface-alt">
-        <div class="container">
-            <div class="section-header text-center">
-                <h2>The Smart Way to Learn</h2>
-                <p>We handle the boring part. You just learn.</p>
-            </div>
-            
-            <div class="feature-row">
-                <div class="feature-content">
-                    <h3>Instant Deck Generation</h3>
-                    <p>Paste a text, a list of words, or a topic. Our AI engine instantly builds comprehensive flashcards with definitions, phonetic transcriptions, and examples.</p>
-                    <ul class="feature-list">
-                        <li><i data-lucide="check" class="check-icon"></i> Extracts vocabulary automatically</li>
-                        <li><i data-lucide="check" class="check-icon"></i> Adds grammatical gender & info</li>
-                        <li><i data-lucide="check" class="check-icon"></i> 1-click export to .apkg</li>
-                    </ul>
-                </div>
-                <div class="feature-visual">
-                    <div class="mockup-card glass-effect">
-                        <div class="mockup-header">
-                            <span class="dot"></span><span class="dot"></span><span class="dot"></span>
-                        </div>
-                        <div class="mockup-body">
-                            <div class="mockup-line w-75"></div>
-                            <div class="mockup-line w-50"></div>
-                            <div class="mockup-line w-90"></div>
-                            <div class="mockup-btn"></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="feature-row reverse">
-                <div class="feature-content">
-                    <h3>Rich Context & Audio</h3>
-                    <p>Every card includes a sentence example showing the word in action. Because "Run" means different things in a gym and in a computer program.</p>
-                    <a href="#" class="link-arrow">
-                        Explore Examples <i data-lucide="arrow-right"></i>
-                    </a>
-                </div>
-                <div class="feature-visual">
-                    <div class="image-wrapper glass-effect">
-                        <!-- Flashcard Component -->
-                        <div class="flashcard-container">
-                            <div class="flashcard">
-                                <!-- Front Side -->
-                                <div class="flashcard-face flashcard-front">
-                                    <p class="flashcard-text-large">Przygotowuję kawę w domu na V60, czy ten stopień palenia będzie odpowiedni?</p>
-                                    <button class="audio-btn" aria-label="Play audio">
-                                        <i data-lucide="play" class="icon-fill"></i>
-                                    </button>
-                                </div>
-                                <!-- Back Side -->
-                                <div class="flashcard-face flashcard-back">
-                                    <button class="audio-btn small" aria-label="Play audio">
-                                        <i data-lucide="play" class="icon-fill"></i>
-                                    </button>
-                                    <h3 class="flashcard-title">Я готую каву вдома у V60, чи підійде цей ступінь обсмаження?</h3>
-                                    <p class="phonetic-text">Pshy-go-to-voo-ye ka-ve v do-moo na faoo-shest-dze-shont, chy ten sto-pyen pa-le-nya ben-dze od-po-vyed-nee?</p>
-                                    
-                                    <div class="flashcard-section">
-                                        <h4>Explanation:</h4>
-                                        <p>Ця фраза допомагає уточнити у бариста, чи підходить конкретний сорт кави для альтернативного заварювання. Зазвичай для V60 шукають світле або середнє обсмаження (jasne/średnie palenie), щоб розкрити кислинку та аромат.</p>
-                                    </div>
-                                    
-                                    <div class="flashcard-section">
-                                        <h4>Follow-up:</h4>
-                                        <ul class="flashcard-list">
-                                            <li>Tak, to jest jasne palenie, idealne do metod przelewowych. (Так, це світле обсмаження, ідеальне для переливних методів.)</li>
-                                            <li>To ziarno jest palone pod espresso, więc w V60 może być zbyt intensywne. (Це зерно обсмажене під еспресо, тому у V60 воно може бути занадто інтенсивним.)</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Decorative elements -->
-                    <div class="blob blob-1"></div>
-                    <div class="blob blob-2"></div>
-                </div>
-            </div>
+      <div class="container">
+        <div class="section-header text-center">
+          <h2>The Smart Way to Learn</h2>
+          <p>We handle the boring part. You just learn.</p>
         </div>
+
+        <div class="feature-row">
+          <div class="feature-content">
+            <h3>Instant Deck Generation</h3>
+            <p>
+              Paste a text, a list of words, or a topic. Our AI engine instantly
+              builds comprehensive flashcards with definitions, phonetic
+              transcriptions, and examples.
+            </p>
+            <ul class="feature-list">
+              <li>
+                <i data-lucide="check" class="check-icon"></i> Extracts
+                vocabulary automatically
+              </li>
+              <li>
+                <i data-lucide="check" class="check-icon"></i> Adds grammatical
+                gender & info
+              </li>
+              <li>
+                <i data-lucide="check" class="check-icon"></i> 1-click export to
+                .apkg
+              </li>
+            </ul>
+          </div>
+          <div class="feature-visual">
+            <div class="mockup-card glass-effect">
+              <div class="mockup-header">
+                <span class="dot"></span><span class="dot"></span
+                ><span class="dot"></span>
+              </div>
+              <div class="mockup-body">
+                <div class="mockup-line w-75"></div>
+                <div class="mockup-line w-50"></div>
+                <div class="mockup-line w-90"></div>
+                <div class="mockup-btn"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="feature-row reverse">
+          <div class="feature-content">
+            <h3>Rich Context & Audio</h3>
+            <p>
+              Every card includes a sentence example showing the word in action.
+              Because "Run" means different things in a gym and in a computer
+              program.
+            </p>
+            <a href="#" class="link-arrow">
+              Explore Examples <i data-lucide="arrow-right"></i>
+            </a>
+          </div>
+          <div class="feature-visual">
+            <div class="image-wrapper glass-effect">
+              <!-- Flashcard Component -->
+              <div class="flashcard-container">
+                <div class="flashcard">
+                  <!-- Front Side -->
+                  <div class="flashcard-face flashcard-front">
+                    <p class="flashcard-text-large">
+                      Przygotowuję kawę w domu na V60, czy ten stopień palenia
+                      będzie odpowiedni?
+                    </p>
+                    <button class="audio-btn" aria-label="Play audio">
+                      <i data-lucide="play" class="icon-fill"></i>
+                    </button>
+                  </div>
+                  <!-- Back Side -->
+                  <div class="flashcard-face flashcard-back">
+                    <button class="audio-btn small" aria-label="Play audio">
+                      <i data-lucide="play" class="icon-fill"></i>
+                    </button>
+                    <h3 class="flashcard-title">
+                      Я готую каву вдома у V60, чи підійде цей ступінь
+                      обсмаження?
+                    </h3>
+                    <p class="phonetic-text">
+                      Pshy-go-to-voo-ye ka-ve v do-moo na faoo-shest-dze-shont,
+                      chy ten sto-pyen pa-le-nya ben-dze od-po-vyed-nee?
+                    </p>
+
+                    <div class="flashcard-section">
+                      <h4>Explanation:</h4>
+                      <p>
+                        Ця фраза допомагає уточнити у бариста, чи підходить
+                        конкретний сорт кави для альтернативного заварювання.
+                        Зазвичай для V60 шукають світле або середнє обсмаження
+                        (jasne/średnie palenie), щоб розкрити кислинку та
+                        аромат.
+                      </p>
+                    </div>
+
+                    <div class="flashcard-section">
+                      <h4>Follow-up:</h4>
+                      <ul class="flashcard-list">
+                        <li>
+                          Tak, to jest jasne palenie, idealne do metod
+                          przelewowych. (Так, це світле обсмаження, ідеальне для
+                          переливних методів.)
+                        </li>
+                        <li>
+                          To ziarno jest palone pod espresso, więc w V60 może
+                          być zbyt intensywne. (Це зерно обсмажене під еспресо,
+                          тому у V60 воно може бути занадто інтенсивним.)
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- Decorative elements -->
+            <div class="blob blob-1"></div>
+            <div class="blob blob-2"></div>
+          </div>
+        </div>
+      </div>
     </section>
 
     <!-- CTA Section -->
     <section class="cta-section section-padding">
-        <div class="container cta-container">
-            <div class="cta-content">
-                <h2>Ready to upgrade your brain?</h2>
-                <p>Join thousands of polyglots who save their life from boring manual work.</p>
-                <a href="https://app.flashcards.stefanovskyi.com/" class="btn btn-white btn-lg pulse-effect">
-                    Start Creating Decks
-                </a>
-            </div>
+      <div class="container cta-container">
+        <div class="cta-content">
+          <h2>Ready to upgrade your brain?</h2>
+          <p>
+            Join thousands of polyglots who save their life from boring manual
+            work.
+          </p>
+          <a
+            id="btn-start-creating-decks"
+            href="https://app.flashcards.stefanovskyi.com/"
+            class="btn btn-white btn-lg pulse-effect"
+          >
+            Start Creating Decks
+          </a>
         </div>
+      </div>
     </section>
 
     <!-- Footer -->
     <footer class="footer">
-        <div class="container footer-container">
-            <div class="footer-brand text-center">
-                <div class="logo justify-center">
-                    <i data-lucide="layers" class="logo-icon"></i>
-                    <span>Flashcards Craft</span>
-                </div>
-                <p>The ultimate tool for Anki language learning.</p>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; 2026 Flashcards Craft. All rights reserved.</p>
-            </div>
+      <div class="container footer-container">
+        <div class="footer-brand text-center">
+          <div class="logo justify-center">
+            <i data-lucide="layers" class="logo-icon"></i>
+            <span>Flashcards Craft</span>
+          </div>
+          <p>The ultimate tool for Anki language learning.</p>
         </div>
+        <div class="footer-bottom">
+          <p>&copy; 2026 Flashcards Craft. All rights reserved.</p>
+        </div>
+      </div>
     </footer>
 
     <script>
-        lucide.createIcons();
+      lucide.createIcons();
 
-        // Flashcard Flip Logic
-        document.addEventListener('DOMContentLoaded', () => {
-            const flashcards = document.querySelectorAll('.flashcard');
-            
-            flashcards.forEach(card => {
-                card.addEventListener('click', (e) => {
-                    // Prevent flipping if clicking buttons inside (optional, but good for UX)
-                    if (e.target.closest('button')) return;
-                    
-                    card.classList.toggle('flipped');
-                });
-            });
+      // Flashcard Flip Logic
+      document.addEventListener("DOMContentLoaded", () => {
+        const flashcards = document.querySelectorAll(".flashcard");
+
+        flashcards.forEach((card) => {
+          card.addEventListener("click", (e) => {
+            // Prevent flipping if clicking buttons inside (optional, but good for UX)
+            if (e.target.closest("button")) return;
+
+            card.classList.toggle("flipped");
+          });
         });
+
+        // PostHog Event Tracking
+        function trackClick(id, eventName) {
+          const element = document.getElementById(id);
+          if (element) {
+            element.addEventListener('click', () => {
+              if (typeof posthog !== 'undefined') {
+                posthog.capture(eventName);
+              }
+            });
+          }
+        }
+
+        trackClick('btn-get-started', 'clicked_get_started');
+        trackClick('btn-start-generating', 'clicked_start_generating');
+        trackClick('btn-start-creating-decks', 'clicked_start_creating_decks');
+      });
     </script>
-</body>
+  </body>
 </html>
