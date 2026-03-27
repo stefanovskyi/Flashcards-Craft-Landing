@@ -140,7 +140,16 @@ img {
   cursor: pointer;
   transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
   border: none;
-  gap: 0.5rem;
+  gap: 0.75rem;
+}
+
+.btn-icon-left,
+.btn-icon-right {
+  width: 20px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .btn:hover {
@@ -354,8 +363,8 @@ img {
 .badge {
   display: inline-flex;
   align-items: center;
-  gap: 0.5rem;
-  padding: 0.5rem 1rem;
+  gap: 0.6rem;
+  padding: 0.5rem 1.25rem;
   background-color: var(--color-primary);
   color: var(--color-on-primary-fixed);
   border-radius: 9999px;
@@ -394,9 +403,10 @@ img {
 
 .hero-stats {
   display: flex;
-  gap: 2.5rem;
+  gap: 3rem;
   padding-top: 2.5rem;
   border-top: 1.5px solid var(--outline-variant);
+  width: fit-content;
 }
 
 .stat-item {
@@ -408,6 +418,8 @@ img {
 
 .stat-icon {
   color: var(--color-primary);
+  width: 20px;
+  height: 20px;
 }
 
 .hero-image {
@@ -427,7 +439,6 @@ img {
   display: flex;
   align-items: center;
   justify-content: center;
-  perspective: 2000px;
 }
 
 #hero-img-placeholder {
@@ -944,6 +955,8 @@ hr {
 
 .flashcard-face {
   position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
   height: 100%;
   backface-visibility: hidden;
@@ -960,7 +973,6 @@ hr {
   -webkit-backdrop-filter: blur(20px);
   border: 1px solid rgba(255, 255, 255, 0.4);
   box-shadow: 0 8px 32px 0 rgba(19, 27, 46, 0.08);
-  position: relative; /* Added to anchor absolute children */
 }
 
 .flashcard-front {
@@ -995,6 +1007,12 @@ hr {
   text-align: center !important;
   overflow-y: auto !important;
   padding: 3rem 2.5rem !important; /* Added more top padding for the audio btn */
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE and Edge */
+}
+
+.flashcard-back::-webkit-scrollbar {
+  display: none; /* Chrome, Safari and Opera */
 }
 
 .flashcard-back * {
@@ -1049,20 +1067,20 @@ hr {
 /* Twig Icons */
 .twig-icon {
   position: absolute;
-  width: 120px;
-  height: 120px;
+  width: 90px;
+  height: 90px;
   pointer-events: none;
-  opacity: 0.3; /* Decreased opacity for a more subtle, premium look at larger size */
+  opacity: 0.25;
 }
 
 .twig-icon.top-right {
-  top: 0.5rem;
-  right: 0.5rem;
+  top: 1rem;
+  right: 1rem;
 }
 
 .twig-icon.bottom-left {
-  bottom: 0.5rem;
-  left: 0.5rem;
+  bottom: 1rem;
+  left: 1rem;
   transform: rotate(180deg);
 }
 
