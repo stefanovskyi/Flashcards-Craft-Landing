@@ -13,7 +13,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap"
       rel="stylesheet"
     />
 
@@ -85,15 +85,15 @@
   </head>
   <body>
     <!-- Navbar -->
-    <nav class="navbar">
+    <nav class="navbar glass-effect">
       <div class="container nav-container">
         <a href="#" class="logo">
           <img src="assets/flashcard.svg" alt="Flashcards Craft Logo" class="logo-icon" />
           <span>Flashcards Craft</span>
         </a>
         <div class="nav-links">
-          <a href="#features">Features</a>
-          <a href="#pain-points">Why Us</a>
+          <a href="#features" class="nav-link">Features</a>
+          <a href="#pain-points" class="nav-link">Why Us</a>
           <a
             id="btn-get-started"
             href="https://app.flashcards.stefanovskyi.com/"
@@ -101,11 +101,35 @@
             >Get Started</a
           >
         </div>
-        <button class="mobile-menu-btn">
+        <button class="mobile-menu-btn" aria-label="Toggle menu">
           <i data-lucide="menu"></i>
         </button>
       </div>
     </nav>
+
+    <!-- Mobile Menu Overlay -->
+    <div class="mobile-menu" id="mobileMenu">
+      <div class="mobile-menu-content">
+        <div class="mobile-menu-header">
+          <a href="#" class="logo">
+            <img src="assets/flashcard.svg" alt="Flashcards Craft Logo" class="logo-icon" />
+            <span>Flashcards Craft</span>
+          </a>
+          <button class="close-menu-btn" id="closeMenu" aria-label="Close menu">
+            <i data-lucide="x"></i>
+          </button>
+        </div>
+        <div class="mobile-menu-links">
+          <a href="#features" class="mobile-nav-link">Features</a>
+          <a href="#pain-points" class="mobile-nav-link">Why Us</a>
+          <a
+            href="https://app.flashcards.stefanovskyi.com/"
+            class="btn btn-primary btn-full"
+            >Get Started</a
+          >
+        </div>
+      </div>
+    </div>
 
     <!-- Hero Section -->
     <header class="hero">
@@ -154,12 +178,12 @@
           </div>
         </div>
         <div class="hero-image">
-          <div class="image-wrapper glass-effect">
+          <div class="image-wrapper">
             <!-- Flashcard Component -->
             <div class="flashcard-container">
               <div class="flashcard" id="hero-flashcard">
                 <!-- Front Side -->
-                <div class="flashcard-face flashcard-front">
+                <div class="flashcard-face flashcard-front glass-effect">
                   <p class="flashcard-text-large">
                     Przygotowuję kawę w domu na V60, czy ten stopień palenia
                     będzie odpowiedni?
@@ -169,7 +193,7 @@
                   </button>
                 </div>
                 <!-- Back Side -->
-                <div class="flashcard-face flashcard-back">
+                <div class="flashcard-face flashcard-back glass-effect">
                   <button class="audio-btn small" aria-label="Play audio">
                     <i data-lucide="play" class="icon-fill"></i>
                   </button>
@@ -377,7 +401,7 @@
             </a>
           </div>
           <div class="feature-visual">
-            <div class="image-wrapper glass-effect">
+            <div class="image-wrapper">
               <!-- Flashcard Component -->
               <div class="flashcard-container">
                 <div class="flashcard">
@@ -481,6 +505,21 @@
 
     <script>
       lucide.createIcons();
+
+      // Mobile Menu Toggle
+      const mobileMenu = document.getElementById('mobileMenu');
+      const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+      const closeMenuBtn = document.getElementById('closeMenu');
+      const mobileLinks = document.querySelectorAll('.mobile-nav-link');
+
+      function toggleMenu() {
+        mobileMenu.classList.toggle('active');
+        document.body.style.overflow = mobileMenu.classList.contains('active') ? 'hidden' : '';
+      }
+
+      mobileMenuBtn.addEventListener('click', toggleMenu);
+      closeMenuBtn.addEventListener('click', toggleMenu);
+      mobileLinks.forEach(link => link.addEventListener('click', toggleMenu));
 
       // Flashcard Flip Logic
       document.addEventListener("DOMContentLoaded", () => {
