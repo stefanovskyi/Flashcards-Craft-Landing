@@ -634,20 +634,20 @@ img {
 }
 
 .feature-row {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
+  display: flex;
   gap: 6rem;
   align-items: center;
   margin-bottom: 8rem;
 }
 
-.feature-row.reverse {
-  direction: rtl;
+.feature-row > * {
+  flex: 1;
 }
 
-.feature-row.reverse .feature-content {
-  direction: ltr;
+.feature-row.reverse {
+  flex-direction: row-reverse;
 }
+
 
 .feature-content h3 {
   font-size: 2rem;
@@ -884,11 +884,11 @@ hr {
     grid-template-columns: repeat(2, 1fr);
   }
   .feature-row {
-    grid-template-columns: 1fr;
+    flex-direction: column;
     gap: 4rem;
   }
   .feature-row.reverse {
-    direction: ltr;
+    flex-direction: column;
   }
 }
 
