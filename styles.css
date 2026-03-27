@@ -960,6 +960,7 @@ hr {
   -webkit-backdrop-filter: blur(20px);
   border: 1px solid rgba(255, 255, 255, 0.4);
   box-shadow: 0 8px 32px 0 rgba(19, 27, 46, 0.08);
+  position: relative; /* Added to anchor absolute children */
 }
 
 .flashcard-front {
@@ -973,7 +974,10 @@ hr {
 
 .flashcard-front::after {
   content: "Tap to Flip";
-  margin-top: auto;
+  position: absolute;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
   font-size: 0.75rem;
   font-weight: 700;
   text-transform: uppercase;
@@ -1040,6 +1044,26 @@ hr {
   width: 20px;
   height: 20px;
   fill: currentColor;
+}
+
+/* Twig Icons */
+.twig-icon {
+  position: absolute;
+  width: 120px;
+  height: 120px;
+  pointer-events: none;
+  opacity: 0.3; /* Decreased opacity for a more subtle, premium look at larger size */
+}
+
+.twig-icon.top-right {
+  top: 0.5rem;
+  right: 0.5rem;
+}
+
+.twig-icon.bottom-left {
+  bottom: 0.5rem;
+  left: 0.5rem;
+  transform: rotate(180deg);
 }
 
 .flashcard-title {
